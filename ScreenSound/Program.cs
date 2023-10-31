@@ -4,9 +4,9 @@ using ScreenSound.Modelos;
 
 try
 {
-    var connection = new Connection().ObterConexao();
-    connection.Open();
-    Console.WriteLine(connection.State);
+    var connection = new Connection();
+    connection.Listar();
+    
 } catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
