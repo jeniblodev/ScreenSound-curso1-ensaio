@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ScreenSound.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +17,25 @@ namespace ScreenSound.Banco
             return new SqlConnection(connectionString);
         }
 
-        public void Listar()
+        public IEnumerable<Artista> Listar()
         {
-            var connection = ObterConexao();
+            var lista = new List<Artista>();
+            using var connection = ObterConexao();
             connection.Open();
 
             string sql = "SELECT * FROM Artistas";
             SqlCommand command = new SqlCommand(sql, connection);
-            SqlDataReader dataReader = command.ExecuteReader();
+            using SqlDataReader dataReader = command.ExecuteReader();
 
             while (dataReader.Read())
             {
-                Console.WriteLine($"{dataReader["Id"]}, {dataReader["Nome"]}, {dataReader["FotoPerfil"]}, {dataReader["Bio"]}");
+                string nomeArtista = Convert.ToString(dataReader["Nome"]);
+                string bioArtista = Convert.ToString(dataReader["Bio"]);
+                Artista artista = new(nomeArtista, bioArtista);
+                lista.Add(artista);
             }
 
-            dataReader.Close();
+            return lista;
         }
     }
 }
