@@ -5,9 +5,6 @@ using ScreenSound.Modelos;
 try
 {
     var artistaDAL = new ArtistaDAL();
-    /*artistaDAL.Adicionar(new Artista("Beatles", "Bio dos Beatles"));*/
-    artistaDAL.Atualizar(new Artista("Beatles", "Bio dos Beatles atualizada") { Id = 1002});
-    /*artistaDAL.Deletar(2);*/
     var listaArtistas = artistaDAL.Listar();
     foreach ( var artista in listaArtistas )
     {

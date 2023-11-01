@@ -13,9 +13,9 @@ public class Artista
         FotoPerfil = "https://img.freepik.com/vetores-gratis/silhueta-feminina_23-2147524227.jpg";
     }
 
-    public string Nome { get; }
+    public string Nome { get; set; }
     public string FotoPerfil { get; set; }
-    public string Bio { get; }
+    public string Bio { get; set; }
     public int Id { get; set; }
 
     public void AdicionarMusica(Musica musica)
