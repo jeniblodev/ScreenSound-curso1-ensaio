@@ -16,6 +16,7 @@ public class Artista
     public string Nome { get; }
     public string FotoPerfil { get; set; }
     public string Bio { get; }
+    public int Id { get; set; }
 
     public void AdicionarMusica(Musica musica)
     {
@@ -33,7 +34,8 @@ public class Artista
 
     public override string ToString()
     {
-        return $@"Nome: {Nome}
+        return $@"Id: {Id}
+            Nome: {Nome}
             Foto de Perfil: {FotoPerfil}
             Bio: {Bio}";
     }

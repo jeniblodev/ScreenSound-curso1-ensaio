@@ -8,6 +8,7 @@ public class Musica
     }
 
     public string Nome { get; set; }
+    public int Id { get; set; }
 
     public void ExibirFichaTecnica()
     {
