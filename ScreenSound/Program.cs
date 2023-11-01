@@ -4,8 +4,9 @@ using ScreenSound.Modelos;
 
 try
 {
-    var connection = new Connection();
-    var listaArtistas = connection.Listar();
+    var artistaDAL = new ArtistaDAL();
+    artistaDAL.Adicionar(new Artista("Beatles", "Bio dos Beatles"));
+    var listaArtistas = artistaDAL.Listar();
     foreach ( var artista in listaArtistas )
     {
         Console.WriteLine( artista );

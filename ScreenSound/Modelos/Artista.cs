@@ -1,4 +1,6 @@
-﻿namespace ScreenSound.Modelos; 
+﻿using static System.Net.WebRequestMethods;
+
+namespace ScreenSound.Modelos; 
 
 public class Artista 
 {
@@ -8,10 +10,11 @@ public class Artista
     {
         Nome = nome;
         Bio = bio;
+        FotoPerfil = "https://img.freepik.com/vetores-gratis/silhueta-feminina_23-2147524227.jpg";
     }
 
     public string Nome { get; }
-    public string FotoPerfil { get; }
+    public string FotoPerfil { get; set; }
     public string Bio { get; }
 
     public void AdicionarMusica(Musica musica)
