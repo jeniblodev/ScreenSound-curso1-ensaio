@@ -4,7 +4,15 @@ using ScreenSound.Modelos;
 
 try
 {
-    var artistaDAL = new ArtistaDAL();
+    using var contexto = new ScreenSoundContext();
+    var artistaDAL = new ArtistaDAL(contexto);
+    artistaDAL.Adicionar(new Artista("Bon Jovi", "bio Bon Jovi"));
+    var artistaBonJovi = artistaDAL.RecuperarPeloNome("Bon Jovi");
+    artistaBonJovi.Bio = "bio Bon Jovi atualizada";
+    artistaDAL.Atualizar(artistaBonJovi);
+    artistaDAL.Deletar(artistaBonJovi);
+
+
     var listaArtistas = artistaDAL.Listar();
     foreach ( var artista in listaArtistas )
     {

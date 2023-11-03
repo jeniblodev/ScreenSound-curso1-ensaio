@@ -22,7 +22,7 @@ namespace ScreenSound.Banco
         {
 
             return context.Artistas.ToList();
-            
+
         }
 
         public void Adicionar(Artista artista)
@@ -44,11 +44,14 @@ namespace ScreenSound.Banco
             context.Artistas.Remove(artista);
             context.SaveChanges();
             Console.WriteLine("Artista removido com sucesso.");
-            
+
         }
 
+        public Artista? RecuperarPeloNome(string nome)
+        {
+            return context.Artistas.FirstOrDefault(a => a.Nome == nome);
+        }
 
-  
 
     }
 }
